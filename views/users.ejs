@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="styles.css">
+       <title>Home</title>
+</head>
+<body>
+       <header class="card-header">
+          <nav class="nav-bar">
+              <ul class="list">
+                     <li class="list_item"><a href="/">Home</a></li>
+                     <li class="list_item"><a href="/logout">logout</a></li>
+              </ul>
+              </nav>
+       </header>
+       <main>
+          <section class="block">
+              <header class="block_header">
+                     <h2 class="block_heading">Blog-express</h2>
+                     <p class="block_paragraph">Welcome To My Blog Used By express And node.js </p>
+              </header>
+              <table class="table">
+                     <thead class="table_header">
+                            <tr>
+                               <th>Username</th>
+                               <th>Number of Posts</th>
+                               <th>Email</th>
+                               <th>Admin</th>
+                               <th>Action</th>
+                            </tr>
+                     </thead>
+                     <tbody>
+                            <% for( let user of users) { %>
+                            <tr>
+                                   <td><%= user.username %></td>
+                                   <td><%= user.posts.length %></td>
+                                   <td><%= user.email %></td>
+                                   <td><%= user.isAdmin %></td>
+                                   <td>
+                                          <form action="/users/<%= user._id%>?_method=DELETE" method="post">
+                                                 <button class="btn btn-accent">Delete</button>
+                                          </form>
+                                   </td>
+                            </tr>
+                            <% } %>
+                     </tbody>
+                     </table>
+              </section>
+       </main>
+</body>
+</html>

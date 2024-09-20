@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="styles.css">
+       <title>Home</title>
+</head>
+<body>
+       <header class="card-header">
+              <nav class="nav-bar">
+                     <ul class="list">
+                            <li class="list_item"><a href="/">Home</a></li>
+                            <li class="list_item"><a href="/admin">Admin</a></li>
+                            <li class="list_item"><a href="/logout">Logout</a></li>
+                     </ul>
+              </nav>
+       </header>
+       <main>
+              <form action="/users/post" method="post" class="form">
+                     <p class="block_header">Post an Article</p>
+                     <div class="input-group">
+                            <label for="title">Title</label>
+                            <input class="input-field" type="text" name="title" id="title" placeholder="Node is easy" required>
+                     </div>
+                     <div class="input-group">
+                            <label for="slug">Slug</label>
+                            <input class="input-field" type="text" name="slug" id="slug" placeholder="Enter your slug" required>
+                            <span>This string will be used in the URL</span>
+                     </div>
+                     <div class="input-group">
+                            <label for="text">Text</label>
+                            <textarea class="input-field" name="text" id="text" rows="10">Text</textarea>
+                     </div>
+                     <div class="input-group btn-group">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                     </div>
+              </form>
+       </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="/update.css">
+       <title>Home</title>
+</head>
+<body>
+       <header class="card-header">
+              <nav class="nav-bar">
+                     <ul class="list">
+                            <li class="list_item"><a href="/">Home</a></li>
+                     </ul>
+              </nav>
+       </header>
+       <main>
+              <% post %>
+              <form action="/article/<%= post._id%>?_method=PUT" method="post" class="form">
+                     <p class="block_header">Update an Article</p>
+                     <div class="input-group">
+                            <label for="title">Title</label>
+                            <input class="input-field" type="text" name="title" id="title" value="<%= post.title %>" required>
+                     </div>
+                     <div class="input-group">
+                            <label for="slug">Slug</label>
+                            <input class="input-field" type="text" name="slug" id="slug" value="<%= post.slug %>" required>
+                            <span>This string will be used in the URL</span>
+                     </div>
+                     <div class="input-group">
+                            <label for="text">Text</label>
+                            <textarea class="input-field" name="text" id="text" rows="10"><%= post.text %></textarea>
+                     </div>
+                     <div class="input-group btn-group">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                     </div>
+              </form>
+       </main>
+</body>
+</html>

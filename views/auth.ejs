@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="styles.css">
+       <title>Home</title>
+</head>
+<body>
+       <header class="card-header">
+              <nav class="nav-bar">
+                     <ul class="list">
+                            <li class="list_item"><a href="/">Home</a></li>
+                            <li class="list_item"><a href="/post">Post</a></li>
+                            <li class="list_item"><a href="/admin">Admin</a></li>
+                            <li class="list_item"><a href="/update">Edit</a></li>
+                            <li class="list_item"><a href="/logout">logout</a></li>
+                     </ul>
+              </nav>
+       </header>
+       <main>
+              <section class="block">
+              <header class="block_header">
+                     <h2 class="block_heading">Blog-express</h2>
+                     <p class="block_paragraph">welcome to My Blog used by express and node.js </p>
+              </header>
+              <div class="block_content">
+                    <% posts %>
+                    <% if (posts.length == 0) { %>
+                          <h3 class="block_header">No post yet in your dashboard try to post !</h3>
+                    <% } %>
+                    <% for( let post of posts ) { %>
+                     <article class="article-collapse">
+                            <h2 class="article_heading"><%= post.title %></h2>
+                            <div class="article_content article-expanded">
+                                   <p><%= post.text %></p>
+                                   <div class="btn-group">
+
+                                          <form action="/article/<%= post._id%>?_method=DELETE" method="post">
+                                                 <button class="btn btn-accent">delete</button>
+                                          </form>
+                                          <a href="/article/<%= post._id %>">
+                                                 <button class="btn btn-primary">edit blog</button>
+                                          </a>
+                                   </div>
+                            </div>
+                     </article>
+                    <% } %>
+              </div>
+              </section>
+       </main>
+       <script>
+              const collapse = document.querySelectorAll(".article-collapse");
+            collapse.forEach(item => 
+            item.addEventListener('click', function() {
+            this.classList.toggle('article-expanded')
+       }))
+       </script>
+</body>
+</html>
