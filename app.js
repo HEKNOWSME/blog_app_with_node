@@ -1,4 +1,5 @@
 const post = require('./routes/posts');
+const error = require('./middleware/error')
 const users = require('./routes/users');
 const admin = require('./routes/admin');
 const login = require('./routes/login');
@@ -20,5 +21,6 @@ app.use('/', index);
 app.use('/', users);
 app.use('/', admin);
 app.use('/', login);
+app.use(error)
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Blog app listening on port ${port}!`))
