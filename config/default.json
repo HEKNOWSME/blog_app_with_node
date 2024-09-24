@@ -1,3 +1,4 @@
 {
-       "privateKey": "ICL-UND-UBL"
+       "privateKey": "ICL-UND-UBL",
+       "dbUrl": "mongodb://localhost:27017/personal-blog"
 }
